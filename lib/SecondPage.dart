@@ -5,6 +5,7 @@ import 'package:flutterapp/first.dart';
 import 'package:flutterapp/visit_details_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'customwidgets/toastWidget.dart';
+
 class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,16 +13,17 @@ class SecondPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('SecondPage'),
       ),
-      body: new Center(
-        child:new Padding(padding:new EdgeInsets.only(top:10.0),
-        child: Column(
-            //主轴居中,即是竖直向居中
-            mainAxisAlignment:MainAxisAlignment.start,
-            //大小按照最小显示
-            mainAxisSize : MainAxisSize.min,
-            crossAxisAlignment : CrossAxisAlignment.start,
-            children: <Widget>[
-              /*new Flexible(
+      body:  Center(
+          child:  Padding(
+              padding: new EdgeInsets.only(top: 10.0),
+              child: Column(
+                //主轴居中,即是竖直向居中
+                mainAxisAlignment: MainAxisAlignment.start,
+                //大小按照最小显示
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  /*new Flexible(
                 child: new Center(
                   child: new Text(
                     '学习Text',
@@ -50,29 +52,82 @@ class SecondPage extends StatelessWidget {
                 flex: 1,
               ),*/
 
-               ///flex默认为1
-              new Expanded(child: new Text("新建页面3", textAlign:TextAlign.center,
-                  style: new TextStyle(color: Colors.black, fontSize: 14.0,background:new Paint()..color=Colors.yellow),
-                  maxLines: 1,textDirection: TextDirection.rtl), flex: 1,),
-              new Expanded(child: new Text("新建页面4",maxLines: 1,textDirection: TextDirection.ltr,)),
+                  ///flex默认为1
+                   Expanded(
+                    child:  Text("新建页面3",
+                        textAlign: TextAlign.center,
+                        style:  TextStyle(
+                            color: Colors.black,
+                            fontSize: 14.0,
+                            background:  Paint()..color = Colors.yellow),
+                        maxLines: 1,
+                        textDirection: TextDirection.rtl),
+                    flex: 1,
+                  ),
+                   Expanded(
+                      child: new Text(
+                    "新建页面4",
+                    maxLines: 1,
+                    textDirection: TextDirection.ltr,
+                  )),
 
-              new Image(image: new AssetImage('images/mine_normal.jpg'),width: 60,height: 40,fit: BoxFit.contain),
-              new Padding(padding:EdgeInsets.only(top: 10,bottom: 10),child:new Image.asset('images/mine_normal.jpg',width: 60,height: 40,fit: BoxFit.contain)),
+                   Image(
+                      image: new AssetImage('images/mine_normal.jpg'),
+                      width: 60,
+                      height: 40,
+                      fit: BoxFit.contain),
+                   Padding(
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      child: new Image.asset('images/mine_normal.jpg',
+                          width: 60, height: 40, fit: BoxFit.contain)),
 
-              //new FadeInImage.memoryNetwork(placeholder:,image: 'lib/images/mine.jpg',width: 300,height: 200,fit:BoxFit.fill),
-              new Padding(padding:EdgeInsets.only(bottom: 10),child: GestureDetector(
-                  child:new FadeInImage.assetNetwork(placeholder:'images/mine.jpg' ,image: 'http://img5.taoche.cn/00/2de3cf45-10190e93q8.jpg',width: 60,height: 40,fit:BoxFit.fill),
-                onTap:()=>onClick("单击666",context) ,onDoubleTap: ()=>onDoubleClick("双击666"),),
-              ),
-              new FadeInImage.assetNetwork(placeholder:'images/mine.jpg' ,image: 'http://img5.taoche.cn/00/2de3cf45-10190e93q8.jpg',width: 60,height: 40,fit:BoxFit.fill),
-              // 实现圆角图片方式中的一种
-              new ClipRRect(child: FadeInImage.assetNetwork(placeholder:'images/mine.jpg' ,image: 'http://img5.taoche.cn/00/2de3cf45-10190e93q8.jpg',width: 60,height: 40,fit:BoxFit.fill),
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))),
-              new Expanded(child: new Text("新建页面5",maxLines: 1,textDirection: TextDirection.ltr,)),
-            ],
-          )
-        )
-    ),
+                  //new FadeInImage.memoryNetwork(placeholder:,image: 'lib/images/mine.jpg',width: 300,height: 200,fit:BoxFit.fill),
+                   Padding(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: GestureDetector(
+                      child: new FadeInImage.assetNetwork(
+                          placeholder: 'images/mine.jpg',
+                          image:
+                              'http://img5.taoche.cn/00/2de3cf45-10190e93q8.jpg',
+                          width: 60,
+                          height: 40,
+                          fit: BoxFit.fill),
+                      onTap: () => onClick("first", context),
+                      onDoubleTap: () => onDoubleClick("双击666"),
+                    ),
+                  ),
+                  GestureDetector(
+                    child: FadeInImage.assetNetwork(
+                        placeholder: 'images/mine.jpg',
+                        image:
+                            'http://img5.taoche.cn/00/2de3cf45-10190e93q8.jpg',
+                        width: 60,
+                        height: 40,
+                        fit: BoxFit.fill),
+                    onTap: () => onClick("detail", context),
+                  ),
+                  // 实现圆角图片方式中的一种
+                   ClipRRect(
+                      child: FadeInImage.assetNetwork(
+                          placeholder: 'images/mine.jpg',
+                          image:
+                              'http://img5.taoche.cn/00/2de3cf45-10190e93q8.jpg',
+                          width: 60,
+                          height: 40,
+                          fit: BoxFit.fill),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10))),
+                   Expanded(
+                      child: new Text(
+                    "新建页面5",
+                    maxLines: 1,
+                    textDirection: TextDirection.ltr,
+                  )),
+                ],
+              ))),
       /*:Column(
         //主轴居中,即是竖直向居中
       mainAxisAlignment:MainAxisAlignment.start,
@@ -96,33 +151,49 @@ class SecondPage extends StatelessWidget {
     );
   }
 
-
-  void onClick(String message,BuildContext context){
-   // Fluttertoast.showToast(msg:message,toastLength:Toast.LENGTH_SHORT,gravity: ToastGravity.CENTER,textColor:colors.toast_background);
-    toastWidget.toast(context,msg:message,showTime: 1000,bgColor:colors.toast_background,textColor:colors.white,);
-    // 跳转到first 淘车检 我的页面
-//     _pushFirst(context);
-
-    // 小马达
-    _pushMars(context);
+  void onClick(String message, BuildContext context) {
+    // Fluttertoast.showToast(msg:message,toastLength:Toast.LENGTH_SHORT,gravity: ToastGravity.CENTER,textColor:colors.toast_background);
+    toastWidget.toast(
+      context,
+      msg: message,
+      showTime: 1000,
+      bgColor: colors.toast_background,
+      textColor: colors.white,
+    );
+    switch (message) {
+      case "first":
+        // 跳转到first  我的页面
+        _pushFirst(context);
+        break;
+      case "detail":
+        // 详情页面
+        _pushMars(context);
+        break;
+    }
   }
 
-  void onDoubleClick(String message){
-    Fluttertoast.showToast(msg:message,toastLength:Toast.LENGTH_SHORT,gravity: ToastGravity.CENTER,textColor:colors.toast_background);
+  void onDoubleClick(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        textColor: colors.toast_background);
   }
-  void _backCurrentPage(BuildContext context){
+
+  void _backCurrentPage(BuildContext context) {
     Navigator.pop(context);
   }
 
-  void _pushFirst(BuildContext context){
+  void _pushFirst(BuildContext context) {
     //路由跳转first页面
-    Navigator.push(context,MaterialPageRoute(builder: (context){
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
       return first();
     }));
   }
-  void _pushMars(BuildContext context){
+
+  void _pushMars(BuildContext context) {
     //路由跳转小马达拜访详情页面
-    Navigator.push(context,MaterialPageRoute(builder: (context){
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
       return VisitDetailsPage();
     }));
   }
